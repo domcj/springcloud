@@ -1,0 +1,23 @@
+server:
+  port: 8001
+
+eureka:
+  instance:
+    hostname: 127.0.0.1
+  client:
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:8000/eureka/
+
+spring:
+  cloud:
+    config:
+      profile: dev
+      server:
+        git:
+          uri: https://github.com/domcj/cloud-config.git
+          search-paths: /**
+          username: domcj
+          password: 247440114qw
+      label: master
+  application:
+    name: cloud-config
